@@ -5,6 +5,7 @@ function App() {
   const [currentRoll, setCurrentRoll] = useState("?")
   const [num, setNum] = useState(0);
   const [num2, setNum2] = useState(0);
+  const [btnDisable, setBtnDisable] = useState(false)
   
   function getRandomNumber(min, max) {
     return Math.random() * (max - min) + min;
@@ -28,6 +29,9 @@ function App() {
     // Displayer hvilket tall som ble rullet 
     setCurrentRoll(randomNumber)
 
+    // Disable roll button
+    setBtnDisable(true)
+
     // Setter en delay på oppdateringen av Poengsummen på 1000ms/1sek + resetter currentRoll state til "?"
     setTimeout(()=>{
       if(randomNumber === 6){
@@ -47,6 +51,7 @@ function App() {
       }
 
       setCurrentRoll("?")
+      setBtnDisable(false)
     }, 1000)
     
     
@@ -60,12 +65,10 @@ function App() {
     setCurrentRoll("?")
   }
 
-
-
   return (
     <div className="App">
-      <button onClick={startGame}>Start Game</button>
-      <button onClick={rollDice}>Roll</button>
+      <button className="bla" onClick={startGame}>Start Game</button>
+      <button disabled={btnDisable} onClick={rollDice}>Roll</button>
       <button onClick={reset}>Reset</button>
       <h1>Current Player: {currentPlayer === null ? "Player ?" : currentPlayer ? "Player 1" : "Player 2"}</h1>
       <h1>Rolled: {currentRoll}</h1>
