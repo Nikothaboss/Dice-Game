@@ -70,8 +70,8 @@ function App() {
       <button className="bla" onClick={startGame}>Start Game</button>
       <button disabled={btnDisable} onClick={rollDice}>Roll</button>
       <button onClick={reset}>Reset</button>
-      <h1>Current Player: {currentPlayer === null ? "Player ?" : currentPlayer ? "Player 1" : "Player 2"}</h1>
-      <h1>Rolled: {currentRoll}</h1>
+      <h1>Current Player: {currentPlayer === null ? "Press start game to select player" : currentPlayer ? "Player 1" : "Player 2"}</h1>
+      <img src="/images/dice.svg" alt=""/><h1>Rolled: {currentRoll}</h1>
       <h1>Player 1 score: {num}</h1>
       <h1>Player 2 score: {num2}</h1>
     </div>
